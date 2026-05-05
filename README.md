@@ -60,10 +60,11 @@ docker run -d --name portfolio-generator -p 5000:5000 portfolio-generator:v1
 ```bash
 curl http://localhost:5000/health
 ```
+<img width="906" height="71" alt="image" src="https://github.com/user-attachments/assets/30ceabd7-964d-4ea9-86a9-a22c8e4c5245" />
 
 ## 5. CI/CD Pipeline Explanation
 The workflow is located at `.github/workflows/ci.yml` and triggers on each push to `main`.
-<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/021435a1-ae7d-4890-be3b-d3b948b09597" />
+<img width="666" height="367" alt="image" src="https://github.com/user-attachments/assets/f6a3c8ff-fb88-4c67-ab7b-828addc0ec30" />
 
 1. `test` job installs Python dependencies and runs:
 ```bash
@@ -126,21 +127,30 @@ curl http://13.206.218.164:5000/health
 
 2. **Challenge:** Need reproducible cloud run and automated validation.  
    **Solution:** Added Dockerfile and GitHub Actions workflow with test gate and live container health check.
-3. ** Challenge: ** The user interface was not clear enough, which hindered the Key generation and overall deployment.
+   
+4. ** Challenge: ** The user interface was not clear enough, which hindered the Key generation and overall deployment.
 **Solution:** We read multiple AWS for easy understanding and implementing the deployment steps.
 
 4.**Challenge**: Instance broken deployment
 **Solution**: Changed the overall file structure.
+
 5.**Challenge:**Permisison denied Api
 **Solution:** We re-analyzed and re-applied the necessary steps in AWS to change the instance back.
+
 6. ** Challenge: Server initialized and deployment not proceeded
 **Solution:** We re-tested through curl commands and test commands for analyzing the specific point of error.
-7. ** Challenges:** Connecting Server and backend
-**Solution: ** The server and backend weren't able to connect, so we had to choose another method that is g
+
+8. ** Challenges:** Connecting Server and backend
+**Solution: ** The server and backend weren't able to connect, so we had to choose another method, that is, gunicorn, to prevent.
+
+9.**Challenges:** AWS Server 
 ## 9. Lessons Learned
+
 1. Building deployment-ready software needs API design, test automation, and infrastructure setup together.
 2. `needs: test` in GitHub Actions prevents deploying unverified code.
 3. Docker `--restart=always` is critical for resilience after instance reboot.
 4. Security groups directly control accessibility even when the app is running correctly.
 5. A clear deployment document makes troubleshooting and demo preparation much easier.
 6. Ubuntu on Oracle may cause problems for actual deployment due to access rights.
+7. Index.html caused multiple issues after deployment, which led us to rewrite the whole file and change the overall file structure.
+
