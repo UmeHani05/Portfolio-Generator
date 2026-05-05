@@ -128,22 +128,23 @@ curl http://13.206.218.164:5000/health
 2. **Challenge:** Need reproducible cloud run and automated validation.  
    **Solution:** Added Dockerfile and GitHub Actions workflow with test gate and live container health check.
    
-4. ** Challenge: ** The user interface was not clear enough, which hindered the Key generation and overall deployment.
-**Solution:** We read multiple AWS for easy understanding and implementing the deployment steps.
+4. **Challenge:** The user interface was not clear enough, which hindered the Key generation and overall deployment.
+   **Solution:** We read multiple AWS for easy understanding and implementing the deployment steps.
 
 4.**Challenge**: Instance broken deployment
-**Solution**: Changed the overall file structure.
+  **Solution**: Changed the overall file structure.
 
-5.**Challenge:**Permisison denied Api
-**Solution:** We re-analyzed and re-applied the necessary steps in AWS to change the instance back.
+5.**Challenge:** Permission denied Api
+  **Solution:** We re-analyzed and re-applied the necessary steps in AWS to change the instance back.
 
-6. ** Challenge: Server initialized and deployment not proceeded
-**Solution:** We re-tested through curl commands and test commands for analyzing the specific point of error.
+6. **Challenge:** Server initialized and deployment not proceeded
+   **Solution:** We re-tested through curl commands and test commands for analyzing the specific point of error.
 
-8. ** Challenges:** Connecting Server and backend
-**Solution: ** The server and backend weren't able to connect, so we had to choose another method, that is, gunicorn, to prevent.
+8. **Challenges:** Connecting Server and backend
+   **Solution:** The server and backend weren't able to connect, so we had to choose another method, that is, gunicorn, to prevent.
 
-9.**Challenges:** AWS Server 
+9.**Challenges:** Our Frontend and backend were erased/manipulated during AWS deployment, through tests and commands, they were being shown, but when checked through the deployment. Frontend and its assets were not being shown.
+  **Solution**: still finding .....
 ## 9. Lessons Learned
 
 1. Building deployment-ready software needs API design, test automation, and infrastructure setup together.
@@ -153,4 +154,3 @@ curl http://13.206.218.164:5000/health
 5. A clear deployment document makes troubleshooting and demo preparation much easier.
 6. Ubuntu on Oracle may cause problems for actual deployment due to access rights.
 7. Index.html caused multiple issues after deployment, which led us to rewrite the whole file and change the overall file structure.
-
