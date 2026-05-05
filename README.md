@@ -63,6 +63,7 @@ curl http://localhost:5000/health
 
 ## 5. CI/CD Pipeline Explanation
 The workflow is located at `.github/workflows/ci.yml` and triggers on each push to `main`.
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/021435a1-ae7d-4890-be3b-d3b948b09597" />
 
 1. `test` job installs Python dependencies and runs:
 ```bash
