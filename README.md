@@ -105,7 +105,8 @@ curl http://<EC2_PUBLIC_IP>:5000/health
 ## 7. Testing Evidence
 Including screenshots or terminal outputs for:
 1. `python -m pytest test_app.py -v` passing all tests.
-WhatsApp Image 2026-05-06 at 2.34.10 AM.jpeg
+<img width="1150" height="351" alt="WhatsApp Image 2026-05-06 at 2 39 07 AM" src="https://github.com/user-attachments/assets/ce71209e-993a-440f-a4cd-6fcc2d8f4358" />
+
 <img src="C:\Users\HT\OneDrive\Desktop\Portfolio-Generator-main\WhatsApp Image 2026-05-06 at 2.34.11.jpeg" alt="Description" width="400">
 2. GitHub Actions showing `test` and `build-docker` jobs green.
 3. Live endpoint response:
