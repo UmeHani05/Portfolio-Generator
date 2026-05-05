@@ -1,7 +1,9 @@
 # Deployment Document - Portfolio Generator
 
 ## 1. Application Overview
-This project provides a Portfolio Generator API with a simple frontend page. Users can create and fetch portfolio entries through Flask endpoints, and verify service health for deployment monitoring.
+Automated Portfolio Generation & Deployment System
+This is a web-based system that collects, processes, and transforms user data into a professional portfolio website automatically. The system is designed for students of all fields, allowing them to input their academic and project information, which is then structured and converted into a complete, ready-to-use portfolio.
+Users can create and fetch portfolio entries through Flask endpoints, and verify service health for deployment monitoring.
 
 ### API Endpoints
 | Method | URL | Description | Example Response |
@@ -48,6 +50,8 @@ cd Portfolio-Generator-main
 ```bash
 docker build -t portfolio-generator:v1 .
 ```
+<img width="952" height="545" alt="image" src="https://github.com/user-attachments/assets/218c1349-82a5-49b3-9039-0c318228230b" />
+
 3. Run container:
 ```bash
 docker run -d --name portfolio-generator -p 5000:5000 portfolio-generator:v1
@@ -104,12 +108,13 @@ curl http://<EC2_PUBLIC_IP>:5000/health
 
 ## 7. Testing Evidence
 Including screenshots or terminal outputs for:
-1. `python -m pytest test_app.py -v` passing all tests.
+1. `python -m pytest test_app.py -v` passing all tests.\
+->Testing 1:
 <img width="1150" height="351" alt="WhatsApp Image 2026-05-06 at 2 39 07 AM" src="https://github.com/user-attachments/assets/ce71209e-993a-440f-a4cd-6fcc2d8f4358" />
+->Testing 2:
 <img width="922" height="392" alt="WhatsApp Image 2026-05-06 at 2 34 11 AM" src="https://github.com/user-attachments/assets/ba611782-6fb0-4e29-a2fa-aed3ee315292" />
-
-2. GitHub Actions showing `test` and `build-docker` jobs green.
-3. Live endpoint response:
+3. GitHub Actions showing `test` and `build-docker` jobs green.
+4. Live endpoint response:
 ```bash
 curl http://13.206.218.164:5000/health
 ```
@@ -120,20 +125,21 @@ curl http://13.206.218.164:5000/health
 
 2. **Challenge:** Need reproducible cloud run and automated validation.  
    **Solution:** Added Dockerfile and GitHub Actions workflow with test gate and live container health check.
-3.**Challenge:**User Interface was not clear enough that hindered the Key generation and overall deployement.
-**Solution:** We read multiple AWS for easy understanding and implementing the deployement steps.
+3. ** Challenge: ** The user interface was not clear enough, which hindered the Key generation and overall deployment.
+**Solution:** We read multiple AWS for easy understanding and implementing the deployment steps.
+
 4.**Challenge**: Instance broken deployment
 **Solution**: Changed the overall file structure.
 5.**Challenge:**Permisison denied Api
-**Solution:** We re-analyzed and re-applied the nessecsary steps in AWS to change the instance back.
-6.**Challenege:**Server Initilized and deployment not proceeded
-**Solution:** We re-tested through curl comands and test comands for analyzing the specificpoint of error.
-7.**Challeneges:** Connecting Server and backend
-**Solution:**:The server and backend werent able to connect,so we had t o choose another method that is g
+**Solution:** We re-analyzed and re-applied the necessary steps in AWS to change the instance back.
+6. ** Challenge: Server initialized and deployment not proceeded
+**Solution:** We re-tested through curl commands and test commands for analyzing the specific point of error.
+7. ** Challenges:** Connecting Server and backend
+**Solution: ** The server and backend weren't able to connect, so we had to choose another method that is g
 ## 9. Lessons Learned
 1. Building deployment-ready software needs API design, test automation, and infrastructure setup together.
 2. `needs: test` in GitHub Actions prevents deploying unverified code.
 3. Docker `--restart=always` is critical for resilience after instance reboot.
-4. Security groups directly control accessibility even when app is running correctly.
+4. Security groups directly control accessibility even when the app is running correctly.
 5. A clear deployment document makes troubleshooting and demo preparation much easier.
-6.Ubuntu on oracle may causes problems for actual deployment as due to access rights.
+6. Ubuntu on Oracle may cause problems for actual deployment due to access rights.
